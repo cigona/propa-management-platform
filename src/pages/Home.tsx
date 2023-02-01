@@ -16,7 +16,7 @@ function Home() {
             <div>Home</div>
             <Text fw={500} fz='xl'>Users</Text>
             <Grid sx={{ my: 3 }}>
-                {query.data.map((user: User) => (
+                {query.data?.map((user: User) => (
                     <Grid.Col key={user.id} span={4}>
                         <UserCard user={user} />
                     </Grid.Col>
