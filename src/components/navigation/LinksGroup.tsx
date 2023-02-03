@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Group, Box, Collapse, ThemeIcon, Text, UnstyledButton, createStyles } from '@mantine/core';
 import {  IconCalendarStats, IconChevronLeft, IconChevronRight } from '@tabler/icons';
+import { CaretDown, CaretRight } from 'phosphor-react';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   control: {
@@ -42,24 +44,26 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface LinksGroupProps {
-    // icon: TablerIcon;
+    icon: any;
     label: string;
     initiallyOpened?: boolean;
     links?: { label: string; link: string }[];
+    link: string
   }
   
-  export function LinksGroup({  label, initiallyOpened, links }: LinksGroupProps) {
+  export function LinksGroup({  icon, label, initiallyOpened,link, links }: LinksGroupProps) {
     const { classes, theme } = useStyles();
     const hasLinks = Array.isArray(links);
     const [opened, setOpened] = useState(initiallyOpened || false);
-    const ChevronIcon = theme.dir === 'ltr' ? IconChevronRight : IconChevronLeft;
+    const navigate = useNavigate();
+
     const items = (hasLinks ? links : []).map((link) => (
       <Text<'a'>
         component="a"
         className={classes.link}
         href={link.link}
         key={link.label}
-        onClick={(event) => event.preventDefault()}
+        onClick={(event) => {event.preventDefault(); navigate(link.link)}}
       >
         {link.label}
       </Text>
@@ -68,23 +72,20 @@ interface LinksGroupProps {
     return (
       <>
         <UnstyledButton onClick={() => setOpened((o) => !o)} className={classes.control}>
-          <Group position="apart" spacing={0}>
+          <Group onClick={() => {!hasLinks && navigate(link)}} position="apart" spacing={0}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <ThemeIcon variant="light" size={30}>
-                {/* <Icon size={18} /> */}
-              </ThemeIcon>
-              <Box ml="md">{label}</Box>
+              {icon}
+              <Box  ml="md">{label}</Box>
             </Box>
-            {/* {hasLinks && (
-              <ChevronIcon
+            {hasLinks && (
+              <CaretRight
                 className={classes.chevron}
                 size={14}
-                stroke={1.5}
                 style={{
                   transform: opened ? `rotate(${theme.dir === 'rtl' ? -90 : 90}deg)` : 'none',
                 }}
               />
-            )} */}
+            )}
           </Group>
         </UnstyledButton>
         {hasLinks ? <Collapse in={opened}>{items}</Collapse> : null}
