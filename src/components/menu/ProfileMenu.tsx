@@ -4,9 +4,9 @@ import { CaretDown } from 'phosphor-react';
 
 export default function ProfileMenu() {
   return (
-    <Menu shadow="md" width={200}>
+    <Menu shadow="md" width={240}>
       <Menu.Target>
-        <Button rightIcon={<CaretDown size={20} weight="thin" />} variant='outline' color='dark'><Avatar></Avatar></Button>
+        <Button size='sm' rightIcon={<CaretDown size={20} weight="thin" />} variant='outline' color='dark'><Avatar></Avatar></Button>
       </Menu.Target>
 
       <Menu.Dropdown>

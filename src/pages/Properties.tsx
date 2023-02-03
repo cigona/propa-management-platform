@@ -1,6 +1,6 @@
-import { Button, Container, Grid, Group, Space, Tabs, Text } from '@mantine/core'
+import { Button, Container, Grid, Group, MediaQuery, ScrollArea, Space, Tabs, Text } from '@mantine/core'
 import { IconPhoto, IconMessageCircle, IconSettings } from '@tabler/icons'
-import { ChatText, PresentationChart } from 'phosphor-react'
+import { Buildings, ChatText, PlusCircle, PresentationChart } from 'phosphor-react'
 import React from 'react'
 import MainLayout from '../layout/Main'
 import { accountsData, OverviewData } from '../lib/types/properties.type'
@@ -75,28 +75,30 @@ const mockOverviewData: OverviewData[] = [
 function Properties() {
     return (
         <MainLayout>
-            <Grid sx={{ backgroundColor: 'white', justifyContent: 'space-between' }}>
-                <Grid.Col span={4}>
-                    <Text weight={800} sx={{ fontSize: 24 }} size={'xl'} color='dark'>Properties</Text>
-                </Grid.Col>
-                <Grid.Col span={4}>
-                    <Group sx={{justifyContent: 'end'}} spacing={5}>
-                        <Button variant='outline' color='dark' sx={{ borderRadius: 10 }}><ChatText size={20} /></Button>
-                        <Button variant='outline' color='dark' sx={{ borderRadius: 10 }}><PresentationChart size={20} /></Button>
-                        <Button color='orange'>Add Property</Button>
-                    </Group>
-
-                </Grid.Col>
-            </Grid>
+            <Group sx={{ backgroundColor: 'white', justifyContent: 'space-between' }}>
+                <Text weight={700} sx={{ fontSize: 24 }} color='dark'>Properties</Text>
+                <Group sx={{ justifyContent: 'end' }} spacing={5}>
+                    <Button size='sm' variant='outline' color='dark' sx={{ borderRadius: 10 }}><ChatText size={16} /></Button>
+                    <Button size='sm' variant='outline' color='dark' sx={{ borderRadius: 10 }}><PresentationChart size={16} /></Button>
+                    <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+                        <Button size='sm' color='orange'><PlusCircle /></Button>
+                    </MediaQuery>
+                    <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+                        <Button size='sm' color='orange'>Add Property</Button>
+                    </MediaQuery>
+                </Group>
+            </Group>
             <Space h='lg' />
             {/* tabs */}
-            <Tabs color="red" defaultValue="overview">
-                <Tabs.List>
+            <Tabs color="orange" defaultValue="overview">
+
+                <Tabs.List >
                     <Tabs.Tab value="overview" >Overview</Tabs.Tab>
                     <Tabs.Tab value="accounting" >Accounting</Tabs.Tab>
                     <Tabs.Tab value="utilities" >Utilities</Tabs.Tab>
                     <Tabs.Tab value="maintenance">Maintenance</Tabs.Tab>
                 </Tabs.List>
+
 
                 <Tabs.Panel value="overview" pt="xl">
                     <DashboardCardsView />
