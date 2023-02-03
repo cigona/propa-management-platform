@@ -1,7 +1,11 @@
-import { Grid, Group, Image, TextInput } from '@mantine/core'
+import { Avatar, Grid, Group, Image, TextInput } from '@mantine/core'
 import React from 'react'
 import Logo from '../../assets/logo.png'
 import {IconSearch} from '@tabler/icons'
+import { Bell, MagnifyingGlass } from 'phosphor-react'
+import ProfileMenu from '../menu/ProfileMenu'
+
+
 
 function TopNav() {
     return (
@@ -12,10 +16,16 @@ function TopNav() {
                 </div>
             </Grid.Col>
             <Grid.Col span={4}>
-            <TextInput  placeholder="Search"  />
+            <TextInput color='dark'  icon={<MagnifyingGlass size={14} />} placeholder="Search"  />
             </Grid.Col>
-            <Grid.Col span={2}></Grid.Col>
-            <Grid.Col span={2}></Grid.Col>
+            <Grid.Col span={2}>
+            </Grid.Col>
+            <Grid.Col span={2}>
+                <Group>
+                <Avatar><Bell size={20} /></Avatar>
+                <ProfileMenu />
+                </Group>
+            </Grid.Col>
 
         </Grid>
     )

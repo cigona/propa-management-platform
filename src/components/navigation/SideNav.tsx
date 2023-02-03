@@ -1,22 +1,14 @@
 
 import { Navbar, Group, Code, ScrollArea, createStyles, Button, Space } from '@mantine/core';
-import {
-  IconNotes,
-  IconCalendarStats,
-  IconGauge,
-  IconPresentationAnalytics,
-  IconFileAnalytics,
-  IconAdjustments,
-  IconLock,
-} from '@tabler/icons';
+import { Buildings, House, Lightning, Money, Paperclip, Person, Plus, UsersThree } from 'phosphor-react';
 import { LinksGroup } from './LinksGroup';
 
 
 const mockdata = [
-  { label: 'Home', icon: IconGauge },
+  { label: 'Home', icon: House },
   {
     label: 'Manage',
-    icon: IconNotes,
+    icon: Buildings,
     initiallyOpened: true,
     links: [
       { label: 'Properties', link: '/' },
@@ -25,15 +17,15 @@ const mockdata = [
   },
   {
     label: 'Tenants',
-    icon: IconCalendarStats,
+    icon: UsersThree,
     links: [
       { label: 'New', link: '/' },
       { label: 'Manage', link: '/' },
     ],
   },
-  { label: 'People', icon: IconPresentationAnalytics },
-  { label: 'Accounting', icon: IconFileAnalytics },
-  { label: 'Reports', icon: IconAdjustments },
+  { label: 'People', icon: Person },
+  { label: 'Accounting', icon: Money },
+  { label: 'Reports', icon: Paperclip },
 ];
 
 const useStyles = createStyles((theme) => ({
@@ -79,9 +71,9 @@ export function SideNav() {
   return (
     <Navbar height={800} width={{ sm: 300 }} p="md" className={classes.navbar}>
       <Navbar.Section className={classes.header}>
-        <Button variant='outline' fullWidth color='dark'>Quick Add</Button>
+        <Button leftIcon={<Lightning size={20} />} rightIcon={<Plus size={20} weight="bold" />} variant='outline' fullWidth color='dark'>Quick Add</Button>
         <Space h='md'/>
-        <Button variant='outline' fullWidth color='dark'>Get started checklist</Button>
+        <Button sx={{justifyContent: 'space-between'}} leftIcon={<Lightning size={20}  />} variant='outline' fullWidth color='dark'>Get started checklist</Button>
         <Space h='md'/>
       </Navbar.Section>
 

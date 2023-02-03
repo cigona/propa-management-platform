@@ -2,11 +2,42 @@ import { Button, Container, Grid, Space, Tabs, Text } from '@mantine/core'
 import { IconPhoto, IconMessageCircle, IconSettings } from '@tabler/icons'
 import React from 'react'
 import MainLayout from '../layout/Main'
-import { accountsData } from '../lib/types/accounts.type'
+import { accountsData, OverviewData } from '../lib/types/properties.type'
 import DashboardCardsView from '../views/DashboardCardsView'
 import { AccountingTableView } from '../views/Properties/AccountingTableView'
+import { OverviewTableView } from '../views/Properties/OverviewTableView'
 
 const mockData: accountsData[] = [
+    {
+        id: '1',
+        property: 'Property name',
+        expenses: 3000000,
+        netIncome: 20000,
+        outstandingRent: 300000
+    },
+    {
+        id: '2',
+        property: 'Property name',
+        expenses: 3000000,
+        netIncome: 20000,
+        outstandingRent: 300000
+    },
+    {
+        id: '3',
+        property: 'Property name',
+        expenses: 3000000,
+        netIncome: 20000,
+        outstandingRent: 300000
+    },
+    {
+        id: '4',
+        property: 'Property name',
+        expenses: 3000000,
+        netIncome: 20000,
+        outstandingRent: 300000
+    },
+]
+const mockOverviewData: OverviewData[] = [
     {
         id: '1',
         property: 'Property name',
@@ -64,7 +95,7 @@ function Properties() {
                 <Tabs.Panel value="overview" pt="xl">
                     <DashboardCardsView />
                     <Space h='xl' />
-                    <AccountingTableView data={mockData} />
+                    <OverviewTableView data={mockOverviewData} />
                 </Tabs.Panel>
 
                 <Tabs.Panel value="accounting" pt="xl">

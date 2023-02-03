@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { createStyles, Table, Checkbox, ScrollArea, Group, Avatar, Text, Space } from '@mantine/core';
-import { accountsData } from '../../lib/types/properties.type';
+import { accountsData, OverviewData } from '../../lib/types/properties.type';
 
 const useStyles = createStyles((theme) => ({
     rowSelected: {
@@ -12,10 +12,10 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface TableSelectionProps {
-    data: accountsData[];
+    data: OverviewData[];
 }
 
-export function AccountingTableView({ data }: TableSelectionProps) {
+export function OverviewTableView({ data }: TableSelectionProps) {
     const { classes, cx } = useStyles();
     const [selection, setSelection] = useState(['1']);
     const toggleRow = (id: string) =>
@@ -46,6 +46,7 @@ export function AccountingTableView({ data }: TableSelectionProps) {
                         123 Property Address
                     </Text>
                 </td>
+                <td>Ksh. {item.grossIncome}</td>
                 <td>Ksh. {item.expenses}</td>
                 <td>Ksh. {item.netIncome}</td>
                 <td>Ksh. {item.outstandingRent}</td>
@@ -66,9 +67,10 @@ export function AccountingTableView({ data }: TableSelectionProps) {
                                 transitionDuration={0}
                             />
                         </th>
-                        <th>Unit</th>
-                        <th>Income</th>
+                        <th>Property</th>
+                        <th>Gross Income</th>
                         <th>Expenses</th>
+                        <th>Net Income</th>
                         <th>Outstanding Balance</th>
                     </tr>
                 </thead>
