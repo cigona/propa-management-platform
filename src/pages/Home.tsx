@@ -5,6 +5,8 @@ import { fetchUsers } from '../lib/api/test'
 import { Grid, Text } from '@mantine/core'
 import { User } from '../lib/types/user.type'
 import { UserCard } from '../components/cards/card'
+import DashboardCard from '../components/cards/DashboardCard'
+import DashboardCardsView from '../views/DashboardCardsView'
 
 
 
@@ -13,15 +15,7 @@ function Home() {
 
     return (
         <MainLayout>
-            <div>Home</div>
-            <Text fw={500} fz='xl'>Users</Text>
-            <Grid sx={{ my: 3 }}>
-                {query.data?.map((user: User) => (
-                    <Grid.Col key={user.id} span={4}>
-                        <UserCard user={user} />
-                    </Grid.Col>
-                ))}
-            </Grid>
+            <DashboardCardsView />
         </MainLayout>
     )
 }
