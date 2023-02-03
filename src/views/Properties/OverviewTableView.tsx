@@ -38,7 +38,7 @@ export function OverviewTableView({ data }: TableSelectionProps) {
                 </td>
                 <td>
                     <Group spacing="sm">
-                        <Text size="md" weight={800}>
+                        <Text size="md" weight={600}>
                             {item.property}
                         </Text>
                     </Group>
@@ -46,10 +46,10 @@ export function OverviewTableView({ data }: TableSelectionProps) {
                         123 Property Address
                     </Text>
                 </td>
-                <td>Ksh. {item.grossIncome}</td>
-                <td>Ksh. {item.expenses}</td>
-                <td>Ksh. {item.netIncome}</td>
-                <td>Ksh. {item.outstandingRent}</td>
+                <td><Text color='dark' size="sm" weight={500}>Ksh. {item.grossIncome}</Text></td>
+                <td><Text color='dark' size="sm" weight={500}>Ksh. {item.expenses}</Text></td>
+                <td><Text color='dark' size="sm" weight={500}>Ksh. {item.netIncome}</Text></td>
+                <td><Text color='dark' size="sm" weight={500}>Ksh. {item.outstandingRent}</Text></td>
             </tr>
         );
     });
