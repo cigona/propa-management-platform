@@ -5,27 +5,29 @@ import { LinksGroup } from './LinksGroup';
 
 
 const mockdata = [
-  { label: 'Home', icon: House },
+  { label: 'Home', icon: <House />, link: '/' },
   {
     label: 'Manage',
-    icon: Buildings,
-    initiallyOpened: true,
+    icon: <Buildings/>,
+    initiallyOpened: false,
     links: [
-      { label: 'Properties', link: '/' },
+      { label: 'Properties', link: '/properties' },
       { label: 'Units', link: '/' },
     ],
+    link: ''
   },
   {
     label: 'Tenants',
-    icon: UsersThree,
+    icon: <UsersThree />,
     links: [
       { label: 'New', link: '/' },
       { label: 'Manage', link: '/' },
     ],
+    link: ''
   },
-  { label: 'People', icon: Person },
-  { label: 'Accounting', icon: Money },
-  { label: 'Reports', icon: Paperclip },
+  { label: 'People', icon: <Person/>, link: '' },
+  { label: 'Accounting', icon: <Money/>, link: '' },
+  { label: 'Reports', icon: <Paperclip/>, link: '' },
 ];
 
 const useStyles = createStyles((theme) => ({
