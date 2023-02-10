@@ -1,19 +1,26 @@
 import { createBrowserRouter } from "react-router-dom"
-import Auth from "../pages/Auth"
+import Auth from "../pages/Auth/Auth"
 import Home from "../pages/dashboard/Home"
 import Properties from "../pages/dashboard/properties/Properties"
 import AddProperties from "../pages/dashboard/properties/add-property"
 import Active from "../pages/dashboard/tenants/Active"
 import Prospective from "../pages/dashboard/tenants/Prospective"
+import Landing from "../pages/Landing"
+import Login from "../pages/Auth/Login"
+import SignUp from "../pages/Auth/SignUp"
 
 export const router = createBrowserRouter([
     {
         path: '',
-        element: <Home />
+        element: <Landing />
     },
     {
-        path: 'auth',
-        element: <Auth />
+        path: 'login',
+        element: <Login />
+    },
+    {
+        path: 'sign-up',
+        element: <SignUp />
     },
     {
         path: 'properties',
