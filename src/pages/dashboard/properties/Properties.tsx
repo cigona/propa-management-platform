@@ -2,11 +2,13 @@ import { Button, Container, Grid, Group, MediaQuery, ScrollArea, Space, Tabs, Te
 import { IconPhoto, IconMessageCircle, IconSettings } from '@tabler/icons'
 import { Buildings, ChatText, PlusCircle, PresentationChart } from 'phosphor-react'
 import React from 'react'
-import MainLayout from '../layout/Main'
-import { accountsData, OverviewData } from '../lib/types/properties.type'
-import DashboardCardsView from '../views/DashboardCardsView'
-import { AccountingTableView } from '../views/Properties/AccountingTableView'
-import { OverviewTableView } from '../views/Properties/OverviewTableView'
+import PageHeader from '../../../components/headers/PageHeader'
+import MainLayout from '../../../layout/Main'
+import { accountsData, OverviewData } from '../../../lib/types/properties.type'
+import DashboardCardsView from '../../../views/DashboardCardsView'
+import { AccountingTableView } from '../../../views/Properties/AccountingTableView'
+import { OverviewTableView } from '../../../views/Properties/OverviewTableView'
+import { UtilitiesTableView } from '../../../views/Properties/UtilitiesTableView'
 
 const mockData: accountsData[] = [
     {
@@ -75,20 +77,7 @@ const mockOverviewData: OverviewData[] = [
 function Properties() {
     return (
         <MainLayout>
-            <Group sx={{ backgroundColor: 'white', justifyContent: 'space-between' }}>
-                <Text weight={700} sx={{ fontSize: 24 }} color='dark'>Properties</Text>
-                <Group sx={{ justifyContent: 'end' }} spacing={5}>
-                    <Button size='sm' variant='outline' color='dark' sx={{ borderRadius: 10 }}><ChatText size={16} /></Button>
-                    <Button size='sm' variant='outline' color='dark' sx={{ borderRadius: 10 }}><PresentationChart size={16} /></Button>
-                    <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
-                        <Button size='sm' color='orange'><PlusCircle /></Button>
-                    </MediaQuery>
-                    <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
-                        <Button size='sm' color='orange'>Add Property</Button>
-                    </MediaQuery>
-                </Group>
-            </Group>
-            <Space h='lg' />
+            <PageHeader title='Properties' buttonText='Add Property' />
             {/* tabs */}
             <Tabs color="orange" defaultValue="overview">
 
@@ -113,7 +102,9 @@ function Properties() {
                 </Tabs.Panel>
 
                 <Tabs.Panel value="utilities" pt="xl">
-                    Utilities
+                <DashboardCardsView />
+                    <Space h='xl' />
+                    <UtilitiesTableView data={mockOverviewData} />
                 </Tabs.Panel>
                 <Tabs.Panel value="maintenance" pt="xl">
                     Maintenance

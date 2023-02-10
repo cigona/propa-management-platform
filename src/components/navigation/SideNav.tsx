@@ -20,14 +20,36 @@ const mockdata = [
     label: 'Tenants',
     icon: <UsersThree />,
     links: [
-      { label: 'New', link: '/' },
-      { label: 'Manage', link: '/' },
+      { label: 'Active', link: '/tenants/active' },
+      { label: 'Prospective', link: '/tenants/prospective' },
     ],
     link: ''
   },
-  { label: 'People', icon: <Person />, link: '' },
-  { label: 'Accounting', icon: <Money />, link: '' },
+  {
+    label: 'People',
+    icon: <Person />,
+    links: [
+      { label: 'Property Staff', link: '/' },
+      { label: 'Vendors', link: '/' },
+      { label: 'Owners', link: '/' },
+      { label: 'Managers', link: '/' },
+      { label: 'Agents', link: '/' },
+    ],
+    link: ''
+  },
+  { 
+    label: 'Accounting', 
+    icon: <Money />, 
+    link: '',
+    links: [
+      { label: 'Transactions', link: '/' },
+      { label: 'Balances', link: '/' },
+      { label: 'Payments', link: '/' },
+    ]
+  },
   { label: 'Reports', icon: <Paperclip />, link: '' },
+  { label: 'Communication', icon: <Paperclip />, link: '' },
+  { label: 'Settings', icon: <Paperclip />, link: '' },
 ];
 
 const useStyles = createStyles((theme) => ({

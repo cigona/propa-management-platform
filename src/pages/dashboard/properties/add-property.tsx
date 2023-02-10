@@ -2,11 +2,11 @@ import { Button, Container, Grid, Group, Space, Tabs, Text } from '@mantine/core
 import { IconPhoto, IconMessageCircle, IconSettings } from '@tabler/icons'
 import { ChatText, PresentationChart, FileArrowUp } from 'phosphor-react'
 import React from 'react'
-import MainLayout from '../layout/Main'
-import { accountsData, OverviewData } from '../lib/types/properties.type'
-import DashboardCardsView from '../views/DashboardCardsView'
-import { AccountingTableView } from '../views/Properties/AccountingTableView'
-import { OverviewTableView } from '../views/Properties/OverviewTableView'
+import MainLayout from '../../../layout/Main'
+import { accountsData, OverviewData } from '../../../lib/types/properties.type'
+import DashboardCardsView from '../../../views/DashboardCardsView'
+import { AccountingTableView } from '../../../views/Properties/AccountingTableView'
+import { OverviewTableView } from '../../../views/Properties/OverviewTableView'
 
 function AddProperties() {
     return (
