@@ -22,26 +22,26 @@ function DashboardCardsView() {
                         onSlideChange={() => console.log('slide change')}
                         onSwiper={(swiper) => console.log(swiper)}
                     >
-                        <SwiperSlide><DashboardCard /></SwiperSlide>
-                        <SwiperSlide><DashboardCard /></SwiperSlide>
-                        <SwiperSlide><DashboardCard /></SwiperSlide>
-                        <SwiperSlide><DashboardCard /></SwiperSlide>
+                        <SwiperSlide><DashboardCard label='label' value={'0000'} /></SwiperSlide>
+                        <SwiperSlide><DashboardCard label='label' value={'0000'} /></SwiperSlide>
+                        <SwiperSlide><DashboardCard label='label' value={'0000'} /></SwiperSlide>
+                        <SwiperSlide><DashboardCard label='label' value={'0000'} /></SwiperSlide>
                     </Swiper>
                 </div>
             </MediaQuery>
             <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
                 <Grid sx={{ my: 3 }}>
                     <Grid.Col sm={6} md={4} lg={3}>
-                        <DashboardCard />
+                        <DashboardCard label='label' value={'0000'} />
                     </Grid.Col>
                     <Grid.Col sm={6} md={4} lg={3}>
-                        <DashboardCard />
+                        <DashboardCard label='label' value={'0000'} />
                     </Grid.Col>
                     <Grid.Col sm={6} md={4} lg={3}>
-                        <DashboardCard />
+                        <DashboardCard label='label' value={'0000'} />
                     </Grid.Col>
                     <Grid.Col sm={6} md={4} lg={3}>
-                        <DashboardCard />
+                        <DashboardCard label='label' value={'0000'} />
                     </Grid.Col>
                 </Grid>
             </MediaQuery>
