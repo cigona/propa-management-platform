@@ -27,7 +27,7 @@ function AddProperties() {
                 <Tabs.List>
                     <Tabs.Tab value="type" >Type</Tabs.Tab>
                     <Tabs.Tab value="details" >Details</Tabs.Tab>
-                    <Tabs.Tab value="units" >Units</Tabs.Tab>
+                    <Tabs.Tab value="units">Units</Tabs.Tab>
                     <Tabs.Tab value="policies">Policies</Tabs.Tab>
                 </Tabs.List>
 
@@ -36,6 +36,21 @@ function AddProperties() {
                     <Text weight={800} sx={{ fontSize: 20 }} size={'xl'} color='dark'>Choose your property type</Text>
                     <Button color='#FFEEE6'>Invite Manager</Button>
                     <Button color='#FFEEE6'>Add Team</Button>
+
+                </Tabs.Panel>
+
+                <Tabs.Panel value="units" pt="xl">
+                    <Space h='xl' />
+                    <Text weight={800} sx={{ fontSize: 20 }} size={'xl'} color='dark'>Add Units to your Properties</Text>
+                    
+
+                </Tabs.Panel>
+
+                <Tabs.Panel value="details" pt="xl">
+                    <Space h='xl' />
+                    <Text weight={800} sx={{ fontSize: 20 }} size={'xl'} color='dark'>Enter Your Property Details</Text>
+                
+                    
 
                 </Tabs.Panel>
 
