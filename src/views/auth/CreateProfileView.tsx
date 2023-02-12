@@ -1,4 +1,5 @@
-import { Center, Grid, Group, Radio, Space, Text, useMantineTheme } from '@mantine/core'
+import { Button, Center, Grid, Group, Radio, Space, Text, useMantineTheme } from '@mantine/core'
+import { ArrowRight } from 'phosphor-react'
 import React from 'react'
 import StyledRadioButton from '../../components/inputs/StyledRadioButton'
 import StyledTextInput from '../../components/inputs/StyledTextInput'
@@ -6,7 +7,7 @@ import StyledTextInput from '../../components/inputs/StyledTextInput'
 function CreateProfileView() {
     const theme = useMantineTheme()
     return (
-        <div style={{ marginBlock: 16, borderTop: `1px solid ${theme.colors.gray[6]}` }}>
+        <div style={{ marginBlock: 16, borderTop: `1px solid ${theme.colors.gray[3]}` }}>
             <Space h='xl' />
             <Grid>
                 <Grid.Col span={6}>
@@ -36,11 +37,21 @@ function CreateProfileView() {
                         <Grid.Col span={12}>
                             <StyledTextInput label='Password' type='password' />
                         </Grid.Col>
+                        <Space h='xl' />
+                        <Grid.Col span={12}>
+                            <Button fullWidth color='orange'>Create account for owner</Button>
+                            <Space h='xl' />
+                            <Text color='gray' align='center' size='sm'>By continuing you agree to our Terms of Service.</Text>
+                            <Space h='xl' />
+                            <Button rightIcon={<ArrowRight/>} fullWidth variant='white' color='orange'>I already have an account</Button>
+
+                        </Grid.Col>
                     </Grid>
 
                 </Grid.Col>
+
                 <Grid.Col span={6}>
-                    <Center sx={{ minHeight: '100vh', width: '100%', backgroundColor: theme.colors.gray[2] }}>
+                    <Center sx={{ minHeight: '80vh', width: '100%', backgroundColor: theme.colors.gray[2] }}>
                         Marketing content goes here
                     </Center>
                 </Grid.Col>
