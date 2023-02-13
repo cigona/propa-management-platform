@@ -3,7 +3,11 @@ import TopBorderContainer from '../../components/containers/TopBorderContainer'
 import StyledRadioButton from '../../components/inputs/StyledRadioButton';
 import StyledTextInput from '../../components/inputs/StyledTextInput';
 
-function AddProfileDetailsView() {
+type props = {
+    action: () => void
+}
+
+function AddProfileDetailsView({action}: props) {
     const theme = useMantineTheme();
     return (
         <TopBorderContainer>
@@ -44,7 +48,7 @@ function AddProfileDetailsView() {
                         <StyledRadioButton label='Company' description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.' />
                     </Group>
                     <Space h='xl' />
-                    <Button color='orange' fullWidth size='lg'>Proceed as Company</Button>
+                    <Button color='orange' onClick={action} fullWidth size='lg'>Proceed as Company</Button>
                 </Grid.Col>
                 <Grid.Col sx={{ backgroundColor: theme.colors.gray[2], height: '100vh' }} p='xl' sm={12} md={6}>
                     <Text size='md' weight={600} color='dark'>Why we collect this information</Text>

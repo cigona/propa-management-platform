@@ -5,7 +5,7 @@ import { LinksGroup } from './LinksGroup';
 import Logo from '../../assets/logo.png'
 
 const mockdata = [
-  { label: 'Home', icon: <House />, link: '/' },
+  { label: 'Home', icon: <House />, link: '/dashboard' },
   {
     label: 'Manage',
     icon: <Buildings />,

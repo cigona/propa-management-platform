@@ -8,6 +8,7 @@ import Prospective from "../pages/dashboard/tenants/Prospective"
 import Landing from "../pages/Landing"
 import Login from "../pages/Auth/Login"
 import SignUp from "../pages/Auth/SignUp"
+import SetupComplete from "../pages/Auth/SetupComplete"
 
 export const router = createBrowserRouter([
     {
@@ -21,6 +22,14 @@ export const router = createBrowserRouter([
     {
         path: 'sign-up',
         element: <SignUp />
+    },
+    {
+        path: 'setup-complete',
+        element: <SetupComplete />
+    },
+    {
+        path: 'dashboard',
+        element: <Home />
     },
     {
         path: 'properties',

@@ -14,13 +14,13 @@ function SignUp() {
     <OnboardingLayout>
         <Stepper size='xs' color='dark' active={active} onStepClick={setActive} breakpoint="sm">
         <Stepper.Step label="Create Account">
-          <CreateProfileView/>
+          <CreateProfileView action={nextStep} />
         </Stepper.Step>
         <Stepper.Step label="Account Details">
-          <AddProfileDetailsView />
+          <AddProfileDetailsView action={nextStep} />
         </Stepper.Step>
         <Stepper.Step label="Company Setup (Optional)" >
-          <AddCompanyDetails />
+          <AddCompanyDetails action={nextStep} />
         </Stepper.Step>
         <Stepper.Step label="Company Team (Optional)">
           <AddTeamMembers />

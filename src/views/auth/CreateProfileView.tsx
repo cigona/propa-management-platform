@@ -5,10 +5,12 @@ import StyledRadioButton from '../../components/inputs/StyledRadioButton'
 import StyledTextInput from '../../components/inputs/StyledTextInput'
 
 
+type props = {
+    action: () => void
+}
 
 
-
-function CreateProfileView() {
+function CreateProfileView({action}: props) {
     const theme = useMantineTheme()
 
 
@@ -43,7 +45,7 @@ function CreateProfileView() {
                         </Grid.Col>
                         <Space h='xl' />
                         <Grid.Col span={12}>
-                            <Button fullWidth color='orange'>Create account for owner</Button>
+                            <Button fullWidth onClick={action}  color='orange'>Create account for owner</Button>
                             <Space h='xl' />
                             <Text color='gray' align='center' size='sm'>By continuing you agree to our Terms of Service.</Text>
                             <Space h='xl' />
