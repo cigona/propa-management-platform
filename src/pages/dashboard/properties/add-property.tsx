@@ -1,14 +1,15 @@
-import { Button, Container, Grid, Group, Space, Tabs, Text } from '@mantine/core'
-import { IconPhoto, IconMessageCircle, IconSettings } from '@tabler/icons'
+import { Button, Container, Grid, Group, Space, Tabs, Text, Stepper} from '@mantine/core'
 import { ChatText, PresentationChart, FileArrowUp } from 'phosphor-react'
-import React from 'react'
 import MainLayout from '../../../layout/Main'
-import { accountsData, OverviewData } from '../../../lib/types/properties.type'
-import DashboardCardsView from '../../../views/DashboardCardsView'
-import { AccountingTableView } from '../../../views/Properties/AccountingTableView'
-import { OverviewTableView } from '../../../views/Properties/OverviewTableView'
+import StyledRadioButton from '../../../components/inputs/StyledRadioButton';
+
+
 
 function AddProperties() {
+    const [active, setActive] = useState(1);
+  const nextStep = () => setActive((current: number) => (current < 4 ? current + 1 : current));
+  const prevStep = () => setActive((current: number) => (current > 0 ? current - 1 : current));
+
     return (
         <MainLayout>
             <Grid sx={{ backgroundColor: 'white', justifyContent: 'space-between' }}>
@@ -23,39 +24,35 @@ function AddProperties() {
                 </Grid.Col>
             </Grid>
             <Space h='lg' />
-            <Tabs color="red" defaultValue="type">
-                <Tabs.List>
-                    <Tabs.Tab value="type" >Type</Tabs.Tab>
-                    <Tabs.Tab value="details" >Details</Tabs.Tab>
-                    <Tabs.Tab value="units">Units</Tabs.Tab>
-                    <Tabs.Tab value="policies">Policies</Tabs.Tab>
-                </Tabs.List>
+        <Stepper size='xs' color='dark' active={active} onStepClick={setActive} breakpoint="sm">
+        <Stepper.Step label="Type">
 
-                <Tabs.Panel value="type" pt="xl">
-                    <Space h='xl' />
-                    <Text weight={800} sx={{ fontSize: 20 }} size={'xl'} color='dark'>Choose your property type</Text>
-                    <Button color='#FFEEE6'>Invite Manager</Button>
-                    <Button color='#FFEEE6'>Add Team</Button>
+        </Stepper.Step>
 
-                </Tabs.Panel>
+        <Stepper.Step label="Details">
+        </Stepper.Step>
 
-                <Tabs.Panel value="units" pt="xl">
-                    <Space h='xl' />
-                    <Text weight={800} sx={{ fontSize: 20 }} size={'xl'} color='dark'>Add Units to your Properties</Text>
-                    
+        <Stepper.Step label="Units" >
+         
+        </Stepper.Step>
 
-                </Tabs.Panel>
+        <Stepper.Step label="Policies">
+          
+        </Stepper.Step>
+        <Stepper.Step label="Costs">
+          
+        </Stepper.Step>
+        <Stepper.Step label="Tenants">
+          
+        </Stepper.Step>
+        <Stepper.Step label="Confirm">
+         
+        </Stepper.Step>
 
-                <Tabs.Panel value="details" pt="xl">
-                    <Space h='xl' />
-                    <Text weight={800} sx={{ fontSize: 20 }} size={'xl'} color='dark'>Enter Your Property Details</Text>
-                
-                    
-
-                </Tabs.Panel>
-
-               
-            </Tabs>
+        <Stepper.Completed>
+          Completed, click back button to get to previous step
+        </Stepper.Completed>
+      </Stepper>
             
        
            
@@ -65,3 +62,7 @@ function AddProperties() {
 }
 
 export default AddProperties
+
+function useState(arg0: number): [any, any] {
+    throw new Error('Function not implemented.');
+}
