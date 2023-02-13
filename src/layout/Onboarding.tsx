@@ -20,9 +20,9 @@ function OnboardingLayout({ children }: Props) {
                 main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : 'white' },
             })}
         >
-            <Container size='xl'>
+
                 {children}
-            </Container>
+
 
         </AppShell>
 

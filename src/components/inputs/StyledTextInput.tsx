@@ -15,7 +15,11 @@ function StyledTextInput({label, placeholder, type}: props) {
                 label={label}
                 variant="filled"
                 type={type ? type : 'text'}
-                // withAsterisk
+                sx={{
+                    '.mantine-TextInput-input:focus': {
+                        borderColor: theme.colors.gray[1]
+                    }
+                }}
             />
         </div>
     )

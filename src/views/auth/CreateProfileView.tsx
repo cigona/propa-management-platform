@@ -1,5 +1,6 @@
 import { Button, Center, Grid, Group, Radio, Space, Text, useMantineTheme } from '@mantine/core'
 import { ArrowRight } from 'phosphor-react'
+import TopBorderContainer from '../../components/containers/TopBorderContainer'
 import StyledRadioButton from '../../components/inputs/StyledRadioButton'
 import StyledTextInput from '../../components/inputs/StyledTextInput'
 
@@ -12,8 +13,7 @@ function CreateProfileView() {
 
 
     return (
-        <div style={{ marginBlock: 16, borderTop: `1px solid ${theme.colors.gray[3]}` }}>
-            <Space h='xl' />
+        <TopBorderContainer >
             <Grid>
                 <Grid.Col sm={12} md={6}>
                     <Text weight={600} color={theme.colors.gray[7]}>Select your role</Text>
@@ -21,10 +21,7 @@ function CreateProfileView() {
                         <StyledRadioButton label='I am a property owner' description='I have the legal ownership of a property.' />
                         <StyledRadioButton label='I am a property manager' description='I manage the day-to-day operations in a property.' />
                     </Group>
-
                     <Space h='xl' />
-                    <Space h='xl' />
-
                     <Text weight={600} color={theme.colors.gray[7]}>Enter Your Details</Text>
                     <Space h='xl' />
                     <Grid>
@@ -63,7 +60,7 @@ function CreateProfileView() {
                     </Center>
                 </Grid.Col>
             </Grid>
-        </div>
+        </TopBorderContainer>
     )
 }
 

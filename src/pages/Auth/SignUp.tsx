@@ -1,6 +1,7 @@
 import { Stepper } from '@mantine/core';
 import React, { useState } from 'react'
 import OnboardingLayout from '../../layout/Onboarding'
+import AddProfileDetailsView from '../../views/auth/AddProfileDetailsView';
 import CreateProfileView from '../../views/auth/CreateProfileView';
 
 function SignUp() {
@@ -14,6 +15,7 @@ function SignUp() {
           <CreateProfileView/>
         </Stepper.Step>
         <Stepper.Step label="Account Details">
+          <AddProfileDetailsView />
         </Stepper.Step>
         <Stepper.Step label="Company Setup (Optional)" >
         </Stepper.Step>
