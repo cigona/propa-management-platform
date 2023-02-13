@@ -3,12 +3,14 @@ import { ChatText, PresentationChart, FileArrowUp } from 'phosphor-react'
 import MainLayout from '../../../layout/Main'
 import StyledRadioButton from '../../../components/inputs/StyledRadioButton';
 import { useState } from 'react';
+import CreatePropertyTypeView from '../../../views/Properties/CreatePropertyTypeView';
+import CreatePropertyDetailsView from '../../../views/Properties/CreatePropertyDetailsView';
 
 
 
 function AddProperties() {
     const [active, setActive] = useState(1);
-  const nextStep = () => setActive((current: number) => (current < 4 ? current + 1 : current));
+  const nextStep = () => setActive((current: number) => (current < 7 ? current + 1 : current));
   const prevStep = () => setActive((current: number) => (current > 0 ? current - 1 : current));
 
     return (
@@ -27,10 +29,11 @@ function AddProperties() {
             <Space h='lg' />
         <Stepper size='xs' color='dark' active={active} onStepClick={setActive} breakpoint="sm">
         <Stepper.Step label="Type">
-
+        <CreatePropertyTypeView action = {nextStep}/>
         </Stepper.Step>
 
         <Stepper.Step label="Details">
+        <CreatePropertyDetailsView action = {nextStep}/>
         </Stepper.Step>
 
         <Stepper.Step label="Units" >
