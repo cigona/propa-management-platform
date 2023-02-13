@@ -24,11 +24,16 @@ export const router = createBrowserRouter([
     },
     {
         path: 'properties',
-        element: <Properties />
-    },
-    {
-        path: 'add-properties',
-        element: <AddProperties/>
+        children: [
+            {
+                path: '',
+                element: <Properties />
+            },
+            {
+                path: 'add',
+                element: <AddProperties />
+            },
+        ]
     },
     {
         path: 'Tenants',

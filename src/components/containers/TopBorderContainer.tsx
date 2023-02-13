@@ -9,7 +9,7 @@ type props = {
 function TopBorderContainer({ children }: props) {
     const theme = useMantineTheme();
     return (
-        <div style={{ marginBlock: 16, borderTop: `1px solid ${theme.colors.gray[3]}`, padding: 32 }}>
+        <div style={{ borderTop: `1px solid ${theme.colors.gray[3]}`, paddingInline: 32 }}>
             <Space h='xl' />
             {children}
         </div>

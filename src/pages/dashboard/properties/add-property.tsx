@@ -2,6 +2,7 @@ import { Button, Container, Grid, Group, Space, Tabs, Text, Stepper} from '@mant
 import { ChatText, PresentationChart, FileArrowUp } from 'phosphor-react'
 import MainLayout from '../../../layout/Main'
 import StyledRadioButton from '../../../components/inputs/StyledRadioButton';
+import { useState } from 'react';
 
 
 
@@ -63,6 +64,3 @@ function AddProperties() {
 
 export default AddProperties
 
-function useState(arg0: number): [any, any] {
-    throw new Error('Function not implemented.');
-}
