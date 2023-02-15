@@ -19,33 +19,14 @@ function CreatePropertyUnitsView({action}: props) {
         <div style={{ marginBlock: 16, borderTop: `1px solid ${theme.colors.gray[3]}` }}>
         <Space h='xl' />
         <Grid>
-            <Grid.Col sm={12} md={6}>
-                <Text weight={600} color={theme.colors.gray[7]}>Add Units to your Property</Text>
-                <Space h='xl' />
-                <Space h='xl' />
+            
+                <Text weight={600} color={theme.colors.gray[7]}>Enter your property details</Text>
                 
-                
-                <AddUserToPropertyCard title={'Owner'} cta={'Assign Owner'} onClick={function (id: string): void {
-                            throw new Error('Function not implemented.')
-                        } } users={[]}  />
-                        <Space h='xl' />
-                    <AddUserToPropertyCard title={'Manager'} cta={'Assign Manager'} onClick={function (id: string): void {
-                            throw new Error('Function not implemented.')
-                        } } users={[]}  />   
-
-                <Space h='xl' />
-                <Space h='xl' />
-
-                <Text weight={600} color={theme.colors.gray[7]}>Enter Your Details</Text>
-                <Space h='xl' />
-             
-
-            </Grid.Col>
-
+            
             <Grid.Col sm={12} md={6}>
             <Grid>
             <Grid.Col span={12}>
-                        <StyledTextInput label='Property Name' placeholder='Enter the Property Name'/>
+                        <StyledTextInput label='' placeholder='Group name'/>
                         <StyledTextInput label='Physical Address' placeholder='Enter the Physical Address of the Property' />
                    </Grid.Col>
 

@@ -20,7 +20,7 @@ function CreatePropertyDetailsView({action}: props) {
         <Space h='xl' />
         <Grid>
             <Grid.Col sm={12} md={6}>
-                <Text weight={600} color={theme.colors.gray[7]}>Enter your property details</Text>
+                <Text weight={600} color={theme.colors.gray[7]}></Text>
                 <Space h='xl' />
                 <Space h='xl' />
                 
@@ -46,11 +46,13 @@ function CreatePropertyDetailsView({action}: props) {
             <Grid>
             <Grid.Col span={12}>
                         <StyledTextInput label='Property Name' placeholder='Enter the Property Name'/>
+                        <Space h = 'md'/>
                         <StyledTextInput label='Physical Address' placeholder='Enter the Physical Address of the Property' />
                    </Grid.Col>
 
                     <Grid.Col sm={12} md={6}>
                     <StyledTextInput label='Postal Address' placeholder='Enter the Postal Address' />
+                    <Space h = 'md'/>
                     <StyledTextInput label='Postal Code' placeholder='0000' />
                     </Grid.Col>
 
@@ -59,8 +61,13 @@ function CreatePropertyDetailsView({action}: props) {
 
                     <Grid.Col sm={12} md={6}>
                         <StyledTextInput label='City' placeholder='Nairobi' />
+                        <Space h = 'md'/>
                         <StyledTextInput label='Country' placeholder='Kenya' />
                     </Grid.Col>
+
+                    <div style={{height : 240, width : '100%'}}>
+                        
+                    </div>
 
                     <Grid.Col span={12}>
                         <StyledTextInput label='' type=''/>
@@ -74,4 +81,4 @@ function CreatePropertyDetailsView({action}: props) {
     )
 }
 
-export default CreatePropertyDetailsView
+export default CreatePropertyDetailsView 

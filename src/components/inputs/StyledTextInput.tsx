@@ -1,10 +1,13 @@
 import { Center, TextInput, useMantineTheme } from '@mantine/core'
+
 import React from 'react'
+import { PhosphorLogo } from 'phosphor-react';
 
 type props = {
     label: string;
     placeholder?: string;
     type? : string
+     
 }
 function StyledTextInput({label, placeholder, type}: props) {
     const theme = useMantineTheme();
@@ -15,6 +18,7 @@ function StyledTextInput({label, placeholder, type}: props) {
                 label={label}
                 variant="filled"
                 type={type ? type : 'text'}
+               
                 // withAsterisk
             />
         </div>

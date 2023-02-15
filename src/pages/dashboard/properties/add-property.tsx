@@ -4,7 +4,8 @@ import MainLayout from '../../../layout/Main'
 import StyledRadioButton from '../../../components/inputs/StyledRadioButton';
 import { useState } from 'react';
 import CreatePropertyTypeView from '../../../views/Properties/CreatePropertyTypeView';
-import CreatePropertyDetailsView from '../../../views/Properties/CreatePropertyDetailsView';
+import CreatePropertyDetailsView from '../../../views/Properties/CreatePropertyUnitsView';
+import CreatePropertyDetailView from '../../../views/Properties/CreatePropertyDetailView';
 
 
 
@@ -33,7 +34,7 @@ function AddProperties() {
         </Stepper.Step>
 
         <Stepper.Step label="Details">
-        <CreatePropertyDetailsView action = {nextStep}/>
+        <CreatePropertyDetailView action = {nextStep}/>
         </Stepper.Step>
 
         <Stepper.Step label="Units" >
