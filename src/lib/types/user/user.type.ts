@@ -1,29 +1,15 @@
 export type User = {
-    id:       number;
-    name:     string;
-    username: string;
-    email:    string;
-    address:  Address;
-    phone:    string;
-    website:  string;
-    company:  Company;
+    first_name:     string;
+    last_name:      string;
+    country_id?:     string;
+    city_id?:        string;
+    postal_address?: string;
+    postal_code?:    string;
+    email:          string;
+    phone_number:   string;
+    manager?:        boolean;
+    owner?:          boolean;
+    password:       string;
+    job_title:      string;
 }
 
-export type Address = {
-    street:  string;
-    suite:   string;
-    city:    string;
-    zipcode: string;
-    geo:     Geo;
-}
-
-export type Geo = {
-    lat: string;
-    lng: string;
-}
-
-export type Company = {
-    name:        string;
-    catchPhrase: string;
-    bs:          string;
-}

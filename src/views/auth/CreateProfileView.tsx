@@ -4,9 +4,8 @@ import StyledRadioButton from '../../components/inputs/StyledRadioButton'
 import StyledTextInput from '../../components/inputs/StyledTextInput'
 import { Formik, Form } from 'formik'
 import { userSchema } from '../../lib/validators/user.validator'
-import { User } from '../../lib/types/user/user.type'
 import { useAuthStore } from '../../lib/store/auth'
-import { Profile } from '../../lib/types/user/profile.type'
+import { User } from '../../lib/types/user/user.type'
 
 
 type props = {
@@ -19,10 +18,10 @@ function CreateProfileView({ action }: props) {
 
     const createUser  = useAuthStore((state) => state.createUser)
 
-    const submitData = async (profile: Profile) => {
+    const submitData = async (profile: User) => {
         const userData = await createUser(profile);
         console.log(userData);
-        console.log('Profile Data', profile)
+        console.log('User Data', profile)
     }
 
 
@@ -43,18 +42,13 @@ function CreateProfileView({ action }: props) {
                     password: ''
                 }}
                 onSubmit={(values) => { 
-                    const profile: Profile = {
+                    const profile: User = {
                         first_name: values.first_name,
                         last_name: values.last_name,
                         email: values.email.toLowerCase(),
                         phone_number: values.phone_number,
-                        postal_address: '',
-                        postal_code: '',
                         password: values.password,
-                        manager: values.role === 'manager' ? true : false,
-                        owner: values.role !== 'manager' ? true : false,
-                        city_id: '',
-                        country_id: ''
+                        job_title: values.role,
                     }
                     submitData(profile);
                  }}

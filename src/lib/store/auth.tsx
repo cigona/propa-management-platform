@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { createuser } from "../api/user/createUser";
-import { Profile } from "../types/user/profile.type";
 import { User } from "../types/user/user.type";
 
 type AuthState = {
@@ -11,7 +10,7 @@ type AuthState = {
     authorized: boolean,
     setUser: (user: User) => void,
     authorize: (credentials: any) => void
-    createUser: (user: Profile) => void
+    createUser: (user: User) => void
 }
 
 export const useAuthStore = create<AuthState>()((set) => ({
