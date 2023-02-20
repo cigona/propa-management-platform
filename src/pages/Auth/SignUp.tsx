@@ -1,6 +1,7 @@
 import { Stepper } from '@mantine/core';
 import React, { useState } from 'react'
 import OnboardingLayout from '../../layout/Onboarding'
+import { Constants } from '../../lib/constants/constant';
 import AddCompanyDetails from '../../views/auth/AddCompanyDetails';
 import AddProfileDetailsView from '../../views/auth/AddProfileDetailsView';
 import AddTeamMembers from '../../views/auth/AddTeamMembers';
@@ -10,6 +11,8 @@ function SignUp() {
     const [active, setActive] = useState(0);
   const nextStep = () => setActive((current: number) => (current < 4 ? current + 1 : current));
   const prevStep = () => setActive((current: number) => (current > 0 ? current - 1 : current));
+
+  console.log(Constants.apiUrl)
   return (
     <OnboardingLayout>
         <Stepper size='xs' color='dark' active={active} onStepClick={setActive} breakpoint="sm">
