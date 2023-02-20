@@ -1,5 +1,6 @@
-import { create } from "zustand/react";
+import { create } from "zustand";
 import { createuser } from "../api/user/createUser";
+import { Profile } from "../types/user/profile.type";
 import { User } from "../types/user/user.type";
 
 type AuthState = {
@@ -10,10 +11,10 @@ type AuthState = {
     authorized: boolean,
     setUser: (user: User) => void,
     authorize: (credentials: any) => void
-    createUser: (user: User) => void
+    createUser: (user: Profile) => void
 }
 
-export const authState = create<AuthState>()((set) => ({
+export const useAuthStore = create<AuthState>()((set) => ({
     token: '',
     user: {} as User,
     permissions: [],

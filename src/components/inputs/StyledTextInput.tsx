@@ -9,10 +9,14 @@ type props = {
     type? : string
     name?: string
     onBlur?: (e: any) => void
-    onChange?: (e: any) => void
+    onChange?: {
+        (e: React.ChangeEvent<any>): void;
+        <T = string | React.ChangeEvent<any>>(field: T): T extends React.ChangeEvent<any> ? void : (e: string | React.ChangeEvent<any>) => void;
+    }
     withAsterisk?: boolean
+    errors?: string
 }
-function StyledTextInput({label, placeholder, type, name, onBlur, withAsterisk, onChange}: props) {
+function StyledTextInput({label, placeholder, type, name, onBlur, withAsterisk, onChange, errors}: props) {
     const theme = useMantineTheme();
     return (
         <div style={{ backgroundColor: theme.colors.gray[1], padding: 8, width: '100%', borderRadius: 10 }}>
@@ -26,6 +30,7 @@ function StyledTextInput({label, placeholder, type, name, onBlur, withAsterisk, 
                 onBlur={onBlur}
                 onChange={onChange}
                 withAsterisk={withAsterisk}
+                error={errors}
             />
         </div>
     )

@@ -5,14 +5,20 @@ import React from 'react'
 type props = {
   label: string;
   description: string;
-  checked?: boolean
+  checked?: boolean;
+  onChange?: {
+    (e: React.ChangeEvent<any>): void;
+    <T = string | React.ChangeEvent<any>>(field: T): T extends React.ChangeEvent<any> ? void : (e: string | React.ChangeEvent<any>) => void;
+  }
+  name?: string;
+  value?: string;
 }
 
-function StyledRadioButton({ label, description, checked }: props) {
+function StyledRadioButton({ label, description, checked, onChange, name, value }: props) {
   const theme = useMantineTheme()
 
   return (
-    <div style={{ padding: 16, borderRadius: 10, border: `1px solid ${checked ? theme.colors.gray[7]: theme.colors.gray[4]}`, minHeight: '12rem' }}>
+    <div style={{ padding: 16, borderRadius: 10, border: `1px solid ${checked ? theme.colors.gray[7] : theme.colors.gray[4]}`, minHeight: '12rem' }}>
       <Radio
         sx={{
           minHeight: '12rem',
@@ -29,6 +35,10 @@ function StyledRadioButton({ label, description, checked }: props) {
         label={label}
         description={description}
         color="red"
+        checked={checked}
+        onChange={onChange}
+        name={name}
+        value={value}
       />
     </div>
   )
