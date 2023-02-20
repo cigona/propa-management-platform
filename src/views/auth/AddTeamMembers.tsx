@@ -67,18 +67,16 @@ function AddTeamMembers() {
                                         ))}
                                         <Space h='xl' />
                                         <Button onClick={() => arrayHelpers.push({})} color='orange'>{values.members && values.members.length > 0 ? "Add Another" : "Add a new member"}</Button>
+                                        <Space h='xl' />
+                                        {values.members && values.members.length > 0 && <Button fullWidth onClick={complete} color='orange'>Send Invites</Button>}
+                                        <Space h='xl' />
+                                        <Button fullWidth onClick={complete} variant='white' color='orange'>Skip for now</Button>
                                     </div>
 
                                 )}
                             />
                         </Form>)}
                     </Formik>
-
-
-                    <Space h='xl' />
-                    <Button fullWidth onClick={complete} color='orange'>Send Invites</Button>
-                    <Space h='xl' />
-                    <Button fullWidth onClick={complete} variant='white' color='orange'>Skip for now</Button>
 
                 </Container>
 
