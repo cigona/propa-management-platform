@@ -7,9 +7,12 @@ type props = {
     label: string;
     placeholder?: string;
     type? : string
-     
+    name?: string
+    onBlur?: (e: any) => void
+    onChange?: (e: any) => void
+    withAsterisk?: boolean
 }
-function StyledTextInput({label, placeholder, type}: props) {
+function StyledTextInput({label, placeholder, type, name, onBlur, withAsterisk, onChange}: props) {
     const theme = useMantineTheme();
     return (
         <div style={{ backgroundColor: theme.colors.gray[1], padding: 8, width: '100%', borderRadius: 10 }}>
@@ -18,8 +21,11 @@ function StyledTextInput({label, placeholder, type}: props) {
                 label={label}
                 variant="filled"
                 type={type ? type : 'text'}
-               
-                // withAsterisk
+                name={name}
+                id={name}
+                onBlur={onBlur}
+                onChange={onChange}
+                withAsterisk={withAsterisk}
             />
         </div>
     )

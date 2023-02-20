@@ -1,5 +1,5 @@
 import { Card, Image, Text, Badge, Button, Group, Avatar, Center } from '@mantine/core';
-import { User } from '../../lib/types/user.type';
+import { User } from '../../lib/types/user/user.type';
 
 type props = {
     user: User

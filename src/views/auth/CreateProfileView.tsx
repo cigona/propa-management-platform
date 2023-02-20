@@ -2,6 +2,8 @@ import { Button, Center, Grid, Group, Radio, Space, Text, useMantineTheme } from
 import { ArrowRight } from 'phosphor-react'
 import StyledRadioButton from '../../components/inputs/StyledRadioButton'
 import StyledTextInput from '../../components/inputs/StyledTextInput'
+import { Formik, Form } from 'formik'
+import { userSchema } from '../../lib/validators/user.validator'
 
 
 type props = {
@@ -9,7 +11,7 @@ type props = {
 }
 
 
-function CreateProfileView({action}: props) {
+function CreateProfileView({ action }: props) {
     const theme = useMantineTheme()
 
 
@@ -29,33 +31,54 @@ function CreateProfileView({action}: props) {
 
                     <Text weight={600} color={theme.colors.gray[7]}>Enter Your Details</Text>
                     <Space h='xl' />
-                    <Grid>
-                        <Grid.Col sm={12} md={6}>
-                            <StyledTextInput label='First Name' placeholder='John' />
-                        </Grid.Col>
-                        <Grid.Col sm={12} md={6}>
-                            <StyledTextInput label='Last Name' placeholder='John' />
+                    <Formik
+                        initialValues={{
+                            first_name: '',
+                            last_name: '',
+                            country_id: '',
+                            city_id: '',
+                            postal_address: '',
+                            postal_code: '',
+                            email: '',
+                            phone_number: '',
+                            isManager: false,
+                            password: ''
+                        }}
+                        onSubmit={(values) => { console.log(values) }}
+                        validationSchema={userSchema}
+                    >
+                        {({errors, touched, handleSubmit, values, handleChange}) => (
+                        <Form>
+                            <Grid>
+                                <Grid.Col sm={12} md={6}>
+                                    <StyledTextInput onChange={handleChange} onBlur={() => {console.log(values)}} withAsterisk name='first_name' label='First Name' placeholder='John' />
+                                </Grid.Col>
+                                <Grid.Col sm={12} md={6}>
+                                    <StyledTextInput onChange={handleChange} onBlur={() => {console.log(values)}} name='last_name' label='Last Name' placeholder='John' />
+                                </Grid.Col>
+                                <Grid.Col span={12}>
+                                    <StyledTextInput name='phone_number' label='Phone Number' />
+                                </Grid.Col>
+                                <Grid.Col span={12}>
+                                    <StyledTextInput label='Email Address' />
+                                </Grid.Col>
+                                <Grid.Col span={12}>
+                                    <StyledTextInput label='Password' type='password' />
+                                </Grid.Col>
+                                <Space h='xl' />
+                                <Grid.Col span={12}>
+                                    <Button fullWidth onClick={() => handleSubmit()} color='orange'>Create account for owner</Button>
+                                    <Space h='xl' />
+                                    <Text color='gray' align='center' size='sm'>By continuing you agree to our Terms of Service.</Text>
+                                    <Space h='xl' />
+                                    <Button  rightIcon={<ArrowRight />} fullWidth variant='white' color='orange'>I already have an account</Button>
 
-                        </Grid.Col>
-                        <Grid.Col span={12}>
-                            <StyledTextInput label='Phone Number' />
-                        </Grid.Col>
-                        <Grid.Col span={12}>
-                            <StyledTextInput label='Email Address' />
-                        </Grid.Col>
-                        <Grid.Col span={12}>
-                            <StyledTextInput label='Password' type='password' />
-                        </Grid.Col>
-                        <Space h='xl' />
-                        <Grid.Col span={12}>
-                            <Button fullWidth onClick={action}  color='orange'>Create account for owner</Button>
-                            <Space h='xl' />
-                            <Text color='gray' align='center' size='sm'>By continuing you agree to our Terms of Service.</Text>
-                            <Space h='xl' />
-                            <Button rightIcon={<ArrowRight />} fullWidth variant='white' color='orange'>I already have an account</Button>
+                                </Grid.Col>
+                            </Grid>
+                        </Form>
+                        )}
+                    </Formik>
 
-                        </Grid.Col>
-                    </Grid>
 
                 </Grid.Col>
 
