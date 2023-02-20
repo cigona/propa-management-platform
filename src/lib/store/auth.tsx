@@ -27,10 +27,12 @@ export const useAuthStore = create<AuthState>()(
             authorize: (credentials) => set((state) => ({ authorized: credentials })),
             createUser: async (u) => {
                 const data = await createuser(u)
-                if(data.name === 'AxiosError' ) {
-                    useMessageStore.getState().setError({message: data.response.data || 'An error occured', isError: true})
+                if (data.name === 'AxiosError') {
+                    useMessageStore.getState().setError({ message: data.response.data || 'An error occured', isError: true })
+                    return;
                 } else {
-                    set((state) => ({user: data}))
+                    set(({ user: data }));
+                    return data;
                 }
             }
         })

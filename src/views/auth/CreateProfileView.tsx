@@ -19,9 +19,13 @@ function CreateProfileView({ action }: props) {
     const createUser  = useAuthStore((state) => state.createUser)
 
     const submitData = async (profile: User) => {
+        // delete profile.manager;
+        // delete profile.owner;
         const userData = await createUser(profile);
-        console.log(userData);
         console.log('User Data', profile)
+        if(userData !== undefined) {
+            action();
+        }
     }
 
 
@@ -46,9 +50,10 @@ function CreateProfileView({ action }: props) {
                         first_name: values.first_name,
                         last_name: values.last_name,
                         email: values.email.toLowerCase(),
-                        phone_number: values.phone_number,
+                        phone: values.phone_number,
                         password: values.password,
-                        job_title: values.role,
+                        manager: values.role === 'manager' ? true : false,
+                        owner: values.role === 'owner' ? true : false
                     }
                     submitData(profile);
                  }}
