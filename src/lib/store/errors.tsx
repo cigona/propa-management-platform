@@ -1,5 +1,6 @@
 import { create } from "zustand"
 import { NotificationMessage } from "../types/messages/errorMessage.type"
+import { logger } from "./middleware/logger"
 
 
 type messageStore = {
@@ -12,9 +13,11 @@ const addMessageToArray = (message: NotificationMessage, list: NotificationMessa
     return list
 }
 
-export const useMessageStore = create<messageStore>()((set) =>({
-    messages: [],
-    setError: (message) => {
-        set((state) => ({messages: addMessageToArray(message, state.messages)}))
-    } 
-}))
+export const useMessageStore = create<messageStore>()(
+    logger((set) => ({
+        messages: [],
+        setError: (message) => {
+            set((state) => ({ messages: addMessageToArray(message, state.messages) }))
+        }
+    }))
+)
