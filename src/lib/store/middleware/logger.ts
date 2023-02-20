@@ -1,4 +1,5 @@
-import { create, State, StateCreator, StoreMutatorIdentifier } from 'zustand'
+import { create, State, StateCreator, StoreMutatorIdentifier } from "zustand";
+import { Constants } from "../../constants/constant";
 
 type Logger = <
   T extends State,
@@ -7,22 +8,24 @@ type Logger = <
 >(
   f: StateCreator<T, Mps, Mcs>,
   name?: string
-) => StateCreator<T, Mps, Mcs>
+) => StateCreator<T, Mps, Mcs>;
 
 type LoggerImpl = <T extends State>(
   f: StateCreator<T, [], []>,
   name?: string
-) => StateCreator<T, [], []>
+) => StateCreator<T, [], []>;
 
 const loggerImpl: LoggerImpl = (f, name) => (set, get, store) => {
-  type T = ReturnType<typeof f>
+  type T = ReturnType<typeof f>;
   const loggedSet: typeof set = (...a) => {
-    set(...a)
-    console.log(...(name ? [`${name}:`] : []), get())
-  }
-  store.setState = loggedSet
+    set(...a);
+    if (Constants.mode === "development") {
+      console.log("Zustand Log", ...(name ? [`${name}:`] : []), get());
+    }
+  };
+  store.setState = loggedSet;
 
-  return f(loggedSet, get, store)
-}
+  return f(loggedSet, get, store);
+};
 
-export const logger = loggerImpl as unknown as Logger
+export const logger = loggerImpl as unknown as Logger;
