@@ -18,7 +18,7 @@ function StyledRadioButton({ label, description, checked, onChange, name, value 
   const theme = useMantineTheme()
 
   return (
-    <div style={{ padding: 16, borderRadius: 10, border: `1px solid ${checked ? theme.colors.gray[7] : theme.colors.gray[4]}`, minHeight: '12rem' }}>
+    <div style={{ padding: 16, borderRadius: 10, border: `1px solid ${checked ? theme.colors.gray[7] : theme.colors.gray[4]}`, minHeight: '12rem', backgroundColor: 'white' }}>
       <Radio
         sx={{
           minHeight: '12rem',

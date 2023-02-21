@@ -19,7 +19,7 @@ export default function MainLayout({ children }: Props) {
             navbar={<Navbar hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }} hidden={!opened}  p="lg"><SideNav /></Navbar>}
             header={<Header height={64} p="md"><TopNav opened={opened} openNavbar={setOpened} /></Header>}
             styles={(theme) => ({
-                main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : 'white' },
+                main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[1] },
             })}
         >
             {/* <Container sx={{minHeight: '100vh'}} size='xl'> */}

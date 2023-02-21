@@ -17,7 +17,7 @@ function AddUserToPropertyCard({ title, cta, onClick, users }: props) {
     }
 
     return (
-        <div style={{ background: theme.colors.gray[2], padding: 16, borderRadius: 8 }}>
+        <Card shadow='sm' withBorder sx={{ background: 'white', padding: 16, borderRadius: 8 }}>
             <Grid sx={{ justifyContent: 'space-between', }}>
                 <Grid.Col span={6} >
                     <Text weight={600} size='md'>{title}</Text>
@@ -58,7 +58,7 @@ function AddUserToPropertyCard({ title, cta, onClick, users }: props) {
                     </Menu>
                 </Grid.Col>
             </Grid>
-        </div>
+        </Card>
     )
 }
 
