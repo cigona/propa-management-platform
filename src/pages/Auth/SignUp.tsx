@@ -1,4 +1,4 @@
-import { Stepper } from '@mantine/core';
+import { createStyles, Stepper } from '@mantine/core';
 import React, { useState } from 'react'
 import OnboardingLayout from '../../layout/Onboarding'
 import { Constants } from '../../lib/constants/constant';
@@ -7,15 +7,28 @@ import AddProfileDetailsView from '../../views/auth/AddProfileDetailsView';
 import AddTeamMembers from '../../views/auth/AddTeamMembers';
 import CreateProfileView from '../../views/auth/CreateProfileView';
 
+const useStyles = createStyles((theme, _params, getRef) => ({
+  root: {
+    padding: theme.spacing.md,
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+  },
+
+  separator: {
+    height: 2,
+    borderTop: `2px dashed ${theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[4]}`,
+    borderRadius: theme.radius.xl,
+    backgroundColor: 'transparent',
+  },
+}))
+
 function SignUp() {
     const [active, setActive] = useState(0);
   const nextStep = () => setActive((current: number) => (current < 4 ? current + 1 : current));
   const prevStep = () => setActive((current: number) => (current > 0 ? current - 1 : current));
-
-  console.log(Constants.apiUrl)
+  const { classes } = useStyles();
   return (
     <OnboardingLayout>
-        <Stepper size='xs' color='dark' active={active} onStepClick={setActive} breakpoint="sm">
+        <Stepper classNames={classes} size='xs' color='dark' active={active} onStepClick={setActive} breakpoint="sm">
         <Stepper.Step label="Create Account">
           <CreateProfileView action={nextStep} />
         </Stepper.Step>
